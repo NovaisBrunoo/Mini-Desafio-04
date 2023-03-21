@@ -1,0 +1,82 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-direita {
+    position: absolute;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    background-image: url('../../assets/Imagem-Direita-signup.svg');
+    background-repeat: no-repeat;
+
+}
+
+.cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+
+    position: absolute;
+    left: 0;
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+strong {
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+button {
+    all: unset;
+    width: 475px;
+    height: 50px;
+    background-color: #04C45C;
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    margin-bottom: 5px;
+
+
+}
+
+.cadastro span {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.cancelar {
+    background-color: #FB0615;
+}
+
+.japossuei {
+    margin-top: 35px;
+}
+
+.red {
+    border: 2px solid red;
+    border-radius: 5px;
+}
