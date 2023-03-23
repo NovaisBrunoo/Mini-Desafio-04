@@ -7,20 +7,43 @@ import TableRow from '@mui/material/TableRow';
 
 import iconeLixo from '../../assets/Icon-Trash.svg'
 import iconeEdite from '../../assets/Icon-Pencil.png'
+import api from '../../api/api'
+import { getItem } from '../../utils/storage'
 
-function createData(name, email, telefone) {
-  return { name, email, telefone };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 'frozne@email.com', '18 55 9999-9999'),
-  createData('Frozen yoghurt', 'frozne@email.com', '18 55 9999-9999'),
-  createData('Frozen yoghurt', 'frozne@email.com', '18 55 9999-9999'),
-  createData('Frozen yoghurt', 'frozne@email.com', '18 55 9999-9999'),
-  createData('Frozen yoghurt', 'frozne@email.com', '18 55 9999-9999')
-];
 
 export default function BasicTable() {
+  const [registrousuario, setRegistroUsuario] = React.useState([]);
+
+  React.useEffect(() => {
+    try {
+      async function TableTitle() {
+        const response = await api.get('/contatos',
+          {
+            headers: {
+              Authorization: `Bearer ${getItem('token')}`
+            }
+          }
+        )
+        console.log(response.data)
+      }
+      TableTitle()
+      console.log(registrousuario)
+    }
+    catch (error) {
+
+    }
+
+  }, [])
+  function createData(name, email, telefone) {
+    return { name, email, telefone };
+  }
+
+  const rows = [
+
+  ];
+
+
+
   return (
     <Table sx={{ width: 950, height: 386 }} aria-label="simple table">
       <TableHead sx={{ backgroundColor: '#F4F0F0' }} >

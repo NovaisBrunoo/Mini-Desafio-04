@@ -42,7 +42,6 @@ export default function SignUp() {
             }
             navigate('/');
         } catch (error) {
-            console.log(error);
         }
     }
     return (

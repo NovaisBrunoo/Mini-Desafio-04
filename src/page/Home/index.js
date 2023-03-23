@@ -1,8 +1,8 @@
-import './style.css';
-import api from '../../api/api'
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import api from '../../api/api';
 import { setItem } from '../../utils/storage';
+import './style.css';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -15,19 +15,18 @@ export default function Home() {
     }
     async function handleForm(event) {
         event.preventDefault()
+        console.log(form);
         try {
             const response = await api.post('/login', {
                 email: form.email,
                 senha: form.senha
             });
-            const { token, usuario } = response.data;
-            setItem('token', token);
-            setItem('userName', usuario.nome)
-            setItem('userId', usuario.id);
+
+            console.log(response)
+            setItem('token', response.data.token);
             navigate('/Main');
         } catch (error) {
-            console.log(error);
-            alert(error)
+
 
         }
     }
@@ -42,16 +41,19 @@ export default function Home() {
                 <h2>Faça o login com sua conta</h2>
 
                 <form onSubmit={handleForm}>
+                    <label htmlFor='email'></label>
                     <input
                         type='text'
                         name='email'
                         value={form.email}
                         onChange={(event) => handleChangeForm(event)}
                     />
+
+                    <label htmlFor='senha'></label>
                     <input
                         type='password'
                         name='senha'
-                        value={form.password}
+                        value={form.senha}
                         onChange={(event) => handleChangeForm(event)}
                     />
                     <strong></strong>

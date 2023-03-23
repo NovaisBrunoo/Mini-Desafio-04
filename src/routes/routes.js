@@ -13,8 +13,9 @@ function MainRoutes() {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/SingUp' element={<SingUp />} />
+
             <Route element={<ProtectedRoutes redirectTo='/' />}>
-                <Route path='/main' element={<Main />} />
+                <Route path='/Main' element={<Main />} />
             </Route>
         </Routes>
     )

@@ -23,3 +23,8 @@ header strong {
     position: absolute;
     right: 15px;
 }
+
+.logout {
+    all: unset;
+    cursor: pointer;
+}
