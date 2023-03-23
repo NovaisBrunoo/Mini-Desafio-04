@@ -17,33 +17,23 @@ export default function BasicTable() {
   React.useEffect(() => {
     try {
       async function TableTitle() {
-        const response = await api.get('/contatos',
+        const response = await api.get('/contato',
           {
             headers: {
               Authorization: `Bearer ${getItem('token')}`
             }
           }
         )
-        console.log(response.data)
+        setRegistroUsuario(response.data)
       }
       TableTitle()
-      console.log(registrousuario)
     }
     catch (error) {
 
     }
 
   }, [])
-  function createData(name, email, telefone) {
-    return { name, email, telefone };
-  }
-
-  const rows = [
-
-  ];
-
-
-
+  console.log(registrousuario)
   return (
     <Table sx={{ width: 950, height: 386 }} aria-label="simple table">
       <TableHead sx={{ backgroundColor: '#F4F0F0' }} >
@@ -55,17 +45,17 @@ export default function BasicTable() {
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map((row) => (
+        {registrousuario.map((row) => (
           <TableRow
-            key={row.name}
+            key={row.id}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
             <TableCell component="th" scope="row" >
-              {row.name}
+              {row.nome}
             </TableCell>
             <TableCell>{row.email}</TableCell>
             <TableCell>{row.telefone}</TableCell>
-            <TableCell><img style={{ marginRight: '15px' }} src={iconeEdite} alt='icone de editar' /> <img src={iconeLixo} alt='icone lixeira' /> </TableCell>
+            <TableCell><img style={{ marginRight: '15px', cursor: 'pointer' }} src={iconeEdite} alt='icone de editar' /> <img style={{ cursor: 'pointer' }} src={iconeLixo} alt='icone lixeira' /> </TableCell>
 
           </TableRow>
         ))}

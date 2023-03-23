@@ -30,7 +30,7 @@ export default function SignUp() {
                 return;
             }
 
-            const response = await api.post('/usuarios', {
+            const response = await api.post('/usuario', {
                 nome: form.nome,
                 email: form.email,
                 senha: form.senha
